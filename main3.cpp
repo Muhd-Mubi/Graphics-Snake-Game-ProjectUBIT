@@ -39,6 +39,7 @@ int main()
     		X[i]=X[i-1];
     		Y[i]=Y[i-1];
 		}
+		// updating the head
     	if(d==0)
 			X[0]=X[0]-s;
 		if(d==1)
@@ -47,8 +48,10 @@ int main()
 			X[0]=X[0]+s;
 		else if(d==3)
 			Y[0]=Y[0]+s;
+		//terminating condition
 		if(getpixel(X[0],Y[0])==1)
 			break;
+		//updating direction
 		if((GetAsyncKeyState(VK_RIGHT))&&(d!=0))
 			d=2;
 		else if((GetAsyncKeyState(VK_UP))&&(d!=3))
@@ -57,7 +60,7 @@ int main()
 			d=0;
 		else if((GetAsyncKeyState(VK_DOWN))&&(d!=1))
 			d=3;
-		if(getpixel(X[0],Y[0])==2)
+		if(getpixel(X[0],Y[0])==2) //food taken 
 		{
 			rx=s; ry=s;
 			setfillstyle(1,2);
@@ -69,15 +72,17 @@ int main()
 			bar(rx-s/2,ry-s/2,rx+s/2,ry+s/2);
 			l=l+1;
 		}
+		//displaying the snake
 		setfillstyle(1,1);
 		for(i=0;i<l;i++)
        		bar(X[i]-s/2,Y[i]-s/2,X[i]+s/2,Y[i]+s/2);	
 		delay(100);
     }
-    printf("score : %d",l-5);
+    printf("score : %d",l-5); //printing the snake
 	while(!GetAsyncKeyState(VK_RETURN));
 	closegraph();
 	getch();
+getch();
 	return 0;	
 }
 
