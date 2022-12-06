@@ -1,19 +1,13 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <conio.h>
-#include <graphics.h>
+#include<graphics.h>
 #include<time.h>
-
 
 int main()
 {
-    int height = GetSystemMetrics(SM_CYSCREEN);
-    int width = GetSystemMetrics(SM_CXSCREEN);
-	int i,X[100],Y[100],rx,ry,gm,gd,l,d=2,s=16;
+	int i,X[100],Y[100],rx,ry,gm,gd = DETECT,l,d=2,s=16;
 	srand(time(NULL));
 	detectgraph(&gd,&gm);
 	initgraph(&gd,&gm,NULL);
-	setfillstyle(1,1);
+	setfillstyle(1,3);
 	bar(s-s/2,s-s/2,(s/2)+s*(1350/s),s+s/2);
 	bar(s-s/2,(-s/2)+s*(700/s),(s/2)+s*(1350/s),(s/2)+s*(700/s));
 	bar(s-s/2,s-s/2,s+s/2,(s/2)+s*(700/s));
@@ -47,15 +41,15 @@ int main()
 		}
     	if(d==0)
 			X[0]=X[0]-s;
-		else if(d==1)
-			Y[0]=Y[0]-s;
+		if(d==1)
+			Y[0]=Y[0]-s;	
     	else if(d==2)
 			X[0]=X[0]+s;
 		else if(d==3)
 			Y[0]=Y[0]+s;
-		else if(getpixel(X[0],Y[0])==1)
+		if(getpixel(X[0],Y[0])==1)
 			break;
-		else if((GetAsyncKeyState(VK_RIGHT))&&(d!=0))
+		if((GetAsyncKeyState(VK_RIGHT))&&(d!=0))
 			d=2;
 		else if((GetAsyncKeyState(VK_UP))&&(d!=3))
 			d=1;
@@ -77,12 +71,13 @@ int main()
 		}
 		setfillstyle(1,1);
 		for(i=0;i<l;i++)
-       		bar(X[i]-s/2,Y[i]-s/2,X[i]+s/2,Y[i]+s/2);
+       		bar(X[i]-s/2,Y[i]-s/2,X[i]+s/2,Y[i]+s/2);	
 		delay(100);
     }
     printf("score : %d",l-5);
 	while(!GetAsyncKeyState(VK_RETURN));
 	closegraph();
 	getch();
-	return 0;
+	return 0;	
 }
+
