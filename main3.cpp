@@ -7,21 +7,21 @@ int main()
 	srand(time(NULL));
 	detectgraph(&gd,&gm);
 	initgraph(&gd,&gm,NULL);
-	setfillstyle(1,3);
-	bar(s-s/2,s-s/2,(s/2)+s*(1350/s),s+s/2);
-	bar(s-s/2,(-s/2)+s*(700/s),(s/2)+s*(1350/s),(s/2)+s*(700/s));
-	bar(s-s/2,s-s/2,s+s/2,(s/2)+s*(700/s));
-	bar((-s/2)+s*(1350/s),s-s/2,(s/2)+s*(1350/s),(s/2)+s*(700/s));
+	setfillstyle(1,3); //borders code start
+	bar(s-s/2,s-s/2,(s/2)+s*(1350/s),s+s/2); //top
+	bar(s-s/2,(-s/2)+s*(700/s),(s/2)+s*(1350/s),(s/2)+s*(700/s)); //bottom
+	bar(s-s/2,s-s/2,s+s/2,(s/2)+s*(700/s)); //left
+	bar((-s/2)+s*(1350/s),s-s/2,(s/2)+s*(1350/s),(s/2)+s*(700/s)); //right
 	X[0]=s*(1350/(2*s)); Y[0]=s*(700/(2*s));
     bar(X[0]-s/2,Y[0]-s/2,X[0]+s/2,Y[0]+s/2);
     l=5;
-    for(i=1;i<l;i++)
+    for(i=1;i<l;i++) //to know 
     {
         X[i]=X[0]-(i*s);
         Y[i]=Y[0];
         bar(X[i]-s/2,Y[i]-s/2,X[i]+s/2,Y[i]+s/2);
     }
-    rx=s; ry=s;
+    rx=s; ry=s; //food starts
     setfillstyle(1,2);
     while(getpixel(rx,ry)!=0)
 	{
@@ -32,7 +32,7 @@ int main()
     delay(2000);
 	while(1)
 	{
-    	setfillstyle(1,0);
+    	setfillstyle(1,0); //updating the snake 
 		bar(X[l-1]-s/2,Y[l-1]-s/2,X[l-1]+s/2,Y[l-1]+s/2);
 		for(i=l-1;i>0;i--)
     	{
