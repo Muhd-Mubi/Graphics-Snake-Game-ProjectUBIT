@@ -1,7 +1,7 @@
-#include<graphics.h>					//used for literally everything, LOL
-#include<time.h>					//used for delay function in loops and totally randomizing the rand function from srand
+#include<graphics.h>						//used for literally everything, LOL
+#include<time.h>						//used for delay function in loops and totally randomizing the rand function from srand
 //stdlib.h not used as it is avaiable in time.h header		//here used for all calculations, int, char and much more
-//conio.h not used as it is available in graphics.h			//here used for getch(),
+//conio.h not used as it is available in graphics.h		//here used for getch()
 //windows.h not used as it is available in graphics.h		//here used for GetAsyncKeyState(),VK_RETURN, VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN
 //strings.h not used as it is available in graphics.h		//here used for sprintf()
 
