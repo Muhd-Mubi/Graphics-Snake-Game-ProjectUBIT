@@ -7,8 +7,8 @@
 
 int main()
 {
-	int i,X[100],Y[100],rx,ry,gm,gd,l,d=1,s=16,highscore=56;
-	char str[1000], str1[1000];//may be removed
+	int i,X[100],Y[100],rx,ry,gm,gd,l,d=1,s=16;
+	char str[1000], quit_message[50];//may be removed
 	srand(time(NULL));
 	detectgraph(&gd,&gm);
 	initgraph(&gd,&gm,NULL);
@@ -47,12 +47,12 @@ int main()
     	if(d==0) //updating the head
 			X[0]=X[0]-s;
 		if(d==1)
-			Y[0]=Y[0]-s;	
+			Y[0]=Y[0]-s;
     	else if(d==2)
 			X[0]=X[0]+s;
 		else if(d==3)
 			Y[0]=Y[0]+s;
-		if(getpixel(X[0],Y[0])==1) //terminating condition 
+		if(getpixel(X[0],Y[0])==1) //terminating condition
 			break;
 		if((GetAsyncKeyState(VK_RIGHT))&&(d!=0)) //updating directions i.e. taking input
 			d=2;
@@ -76,16 +76,20 @@ int main()
 		}
 		setfillstyle(1,1); //displaying the snake
 		for(i=0;i<l;i++)
-			bar(X[i]-s/2,Y[i]-s/2,X[i]+s/2,Y[i]+s/2);	
+			bar(X[i]-s/2,Y[i]-s/2,X[i]+s/2,Y[i]+s/2);
 			delay(60);
 			setfillstyle(1,2);
-			sprintf(str,"Score: %d",l-5);//changing diffrent data type to string a = string name b = another datatype 
+			sprintf(str,"Score: %d",l-5);//changing diffrent data type to string a = string name b = another datatype
 			settextstyle(4,0,3);//used for setting text size, font and direction (that I dont understand) a = font, b = direction, c = size
 			outtextxy(50,220,str);//give an output prompt on the BGI interface a = x-coordinate, b = y-coordinate, c = the string that is to be printed
     }
+    settextstyle(8,0,8);//here to set style for quit message
+    sprintf(quit_message, "GAME-OVER");//changing data type to string
+    outtextxy(420,300,quit_message);//displays message in terminal
+    delay(50);//keeps the message on BGI screen for 0.5 secs such that it apears immidiately after snake dies and dosent close the terminal immidiately
     printf("score : %d",l-5); //displaying the score in seperate terminal
 	while(!GetAsyncKeyState(VK_RETURN)); //closing condition i.e. enter key
-	closegraph(); //close the seperate BGI windows displaying the graphcis  
+	closegraph(); //close the seperate BGI windows displaying the graphcis
 	getch(); //hold terminal windows so the score is visible
-	return 0;	
-}	
+	return 0;
+}
