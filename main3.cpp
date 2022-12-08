@@ -33,6 +33,7 @@ int main()
 		rx=s*(1+rand()%(1350/s-1));//randomizing food on x-axis
 		ry=s*(1+rand()%(700/s-1));//randomizing food on y-axis
 	}
+	// is the initial place where food is spawned as totally random can be anywhere
 	bar(rx-s/2,ry-s/2,rx+s/2,ry+s/2);//bar i.e. small single square for food
     delay(2000); //delay by 2 secs such that it apears instantly when code starts to execute
 	while(1) //loops that is responsible for getting input via keys and updating the head for snake
@@ -63,6 +64,7 @@ int main()
 		else if((GetAsyncKeyState(VK_DOWN))&&(d!=1)) //updating directions i.e. taking input from down arrow key
 			d=3;
 		if(getpixel(X[0],Y[0])==2) //food taken ?
+		// if taken spawining the food on another totally random position
 		{
 			rx=s; ry=s;
 			setfillstyle(1,2);
@@ -77,7 +79,7 @@ int main()
 		setfillstyle(1,1); //displaying the snake
 		for(i=0;i<l;i++) //the main working loop with which it works, moves and displays score in real time
 			bar(X[i]-s/2,Y[i]-s/2,X[i]+s/2,Y[i]+s/2);//the working condition of how the snake moves in the BGI screen
-			delay(60);//is the delay with what we see the next pixel apear, increasing will slow the snake decreasing will fasten the movement of snae
+			delay(60);//is the delay with what we see the next pixel apear, increasing will slow the snake decreasing will fasten the movement of snake
 			setfillstyle(1,2);//setting style for text (that dosent seem to work), LOL (unnecessary)
 			sprintf(str,"Score: %d",l-5);//changing diffrent data type to string a = string name b = another datatype
 			settextstyle(4,0,3);//used for setting text size, font and direction (that I dont understand) a = font, b = direction, c = size
