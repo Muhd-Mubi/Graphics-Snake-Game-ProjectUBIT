@@ -4,7 +4,6 @@
 //conio.h not used as it is available in graphics.h		//here used for getch()
 //windows.h not used as it is available in graphics.h		//here used for GetAsyncKeyState(),VK_RETURN, VK_LEFT, VK_RIGHT, VK_UP, VK_DOWN
 //strings.h not used as it is available in graphics.h		//here used for sprintf()
-
 int main()
 {
 	int i,X[100],Y[100],rx,ry,gm,gd,l,d=1,s=16;
@@ -17,6 +16,7 @@ int main()
 	bar(s-s/2,(-s/2)+s*(700/s),(s/2)+s*(1350/s),(s/2)+s*(700/s)); //bottom
 	bar(s-s/2,s-s/2,s+s/2,(s/2)+s*(700/s)); //left
 	bar((-s/2)+s*(1350/s),s-s/2,(s/2)+s*(1350/s),(s/2)+s*(700/s)); //right
+	bar(380,696,410,10);//supposedely the 2nd left bar
 	X[0]=s*(1350/(2*s)); Y[0]=s*(700/(2*s));
     bar(X[0]-s/2,Y[0]-s/2,X[0]+s/2,Y[0]+s/2); //snake bar (1 square)
     l=5;
@@ -35,7 +35,7 @@ int main()
 	}
 	// is the initial place where food is spawned as totally random can be anywhere
 	bar(rx-s/2,ry-s/2,rx+s/2,ry+s/2);//bar i.e. small single square for food
-    delay(2000); //delay by 2 secs such that it apears instantly when code starts to execute
+    delay(2000); //delay start of the game by 2 seconds such that there is enought time for enralging the terminal windows
 	while(1) //loops that is responsible for getting input via keys and updating the head for snake
 	{
     	setfillstyle(1,0); //updating the snake
@@ -82,12 +82,12 @@ int main()
 			delay(60);//is the delay with what we see the next pixel apear, increasing will slow the snake decreasing will fasten the movement of snake
 			setfillstyle(1,2);//setting style for text (that dosent seem to work), LOL (unnecessary)
 			sprintf(str,"Score: %d",l-5);//changing diffrent data type to string a = string name b = another datatype
-			settextstyle(4,0,3);//used for setting text size, font and direction (that I dont understand) a = font, b = direction, c = size
-			outtextxy(50,220,str);//give an output prompt on the BGI interface a = x-coordinate, b = y-coordinate, c = the string that is to be printed
+			settextstyle(4,0,4);//used for setting text size, font and direction (that I dont understand) a = font, b = direction, c = size
+			outtextxy(90,325,str);//give an output prompt on the BGI interface a = x-coordinate, b = y-coordinate, c = the string that is to be printed
     }
-    settextstyle(8,0,8);//here to set style for quit message
+    settextstyle(8,0,9);//here to set style for quit message
     sprintf(quit_message, "GAME-OVER");//changing data type to string
-    outtextxy(420,300,quit_message);//displays message in terminal
+    outtextxy(600,300,quit_message);//displays message in terminal
     delay(50);//keeps the message on BGI screen for 0.5 secs such that it apears immidiately after snake dies and dosent close the terminal immidiately
     printf("score : %d",l-5); //displaying the score in seperate terminal
 	while(!GetAsyncKeyState(VK_RETURN)); //closing condition i.e. enter key
