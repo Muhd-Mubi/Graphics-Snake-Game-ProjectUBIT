@@ -95,6 +95,6 @@ int main()
     outtextxy(400,350,quit_message);//displays message in terminal
     delay(50);//keeps the message on BGI screen for 0.5 secs such that it apears immidiately after snake dies and dosent close the terminal immidiately
 	while(!GetAsyncKeyState(VK_RETURN)); //closing condition i.e. enter key
-	closegraph(); //close the seperate BGI windows displaying the graphcis
+		closegraph(); //close the seperate BGI windows displaying the graphcis
 	return 0; //unnecessary
 }
