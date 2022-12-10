@@ -28,3 +28,4 @@ floodfill(x,y) fills the color at location, (x,y) within border color
 bar(a,b,c,d,) makes a bar in the BGI interface a = left, b = right, c = right, d = bottom 
 line(a,b,c,d) makes a line in the BGI interface a = x1, b =  y1, c = x2, d = y2
 circle(a,b,c) makes a circle in BGI interface a = x, b = y, c = radius
+//file still in working
